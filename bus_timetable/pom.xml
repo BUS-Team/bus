@@ -24,7 +24,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>bus.bustimetable.Test</mainClass>
+                            <mainClass>bus.timetable.test.Test</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

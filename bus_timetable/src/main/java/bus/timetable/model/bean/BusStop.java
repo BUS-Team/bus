@@ -1,4 +1,4 @@
-package bus.bustimeline.model.bean;
+package bus.timetable.model.bean;
 
 /**
  *

@@ -1,7 +1,7 @@
-package bus.timeline.model.dao;
+package bus.timetable.model.dao;
 
-import bus.bustimeline.model.bean.BusStop;
-import bus.bustimeline.model.bean.Route;
+import bus.timetable.model.bean.BusStop;
+import bus.timetable.model.bean.Route;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.List;
