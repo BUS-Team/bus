@@ -34,6 +34,6 @@ public class Posicao extends Model {
 		List<Posicao> posicoes = Posicao.
 				find.where().eq("linha", route).
 				findPagingList(500).getAsList();
-		return posicoes
+		return posicoes;
 	}
 }
