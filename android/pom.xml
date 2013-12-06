@@ -2,13 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
-    <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>7</version>
-    </parent>
-    
+
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
+
 	<groupId>br.com.bus</groupId>
 	<artifactId>bus-android</artifactId>
 	<version>1.0-SNAPSHOT</version>
@@ -23,28 +23,58 @@
 		<android.plugin.version>3.6.0</android.plugin.version>
 	</properties>
 	<dependencies>
-		<dependency>
+	<dependency>
 			<groupId>org.roboguice</groupId>
 			<artifactId>roboguice</artifactId>
 			<version>2.0</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.robolectric</groupId>
 			<artifactId>robolectric</artifactId>
 			<version>${robolectric.version}</version>
 			<scope>test</scope>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>4.5</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.google.android</groupId>
+			<groupId>android.support</groupId>
+			<artifactId>compatibility-v4</artifactId>
+			<version>19.0.0</version>
+			<type>jar</type>
+		</dependency>
+<!-- 		<dependency>
+			<groupId>android.support</groupId>
+			<artifactId>compatibility-v7-appcompat</artifactId>
+			<version>19.0.0</version>
+			<type>apklib</type>
+		</dependency> -->
+		<dependency>
+			<groupId>android.support</groupId>
+			<artifactId>compatibility-v7-appcompat</artifactId>
+			<version>19.0.0</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>android</groupId>
 			<artifactId>android</artifactId>
-			<version>${platform.version}</version>
+			<version>4.1.2_r4</version>
 			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.loopj.android</groupId>
+			<artifactId>android-async-http</artifactId>
+			<version>1.4.3</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.android.support</groupId>
+					<artifactId>support-v4</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 	<build>
@@ -71,7 +101,8 @@
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
