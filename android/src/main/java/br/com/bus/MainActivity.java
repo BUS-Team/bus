@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 import br.com.bus.httpcommunication.AndroidAsyncHttpClient;
+import br.com.bus.httpcommunication.HttpClient;
 import br.com.bus.httpcommunication.HttpResultCallback;
 import br.com.bus.model.Stop;
 import roboguice.RoboGuice;
@@ -33,7 +34,7 @@ import static android.widget.Toast.LENGTH_SHORT;
 public class MainActivity extends ActionBarActivity implements RoboContext {
 
      @Inject
-     private AndroidAsyncHttpClient client;
+     private HttpClient client;
 
     @InjectResource(R.string.stops_routes)
     private String routeStops;
@@ -92,7 +93,7 @@ public class MainActivity extends ActionBarActivity implements RoboContext {
 	}
 
     private void buildCheckBox(List<Stop> stops) {
-        Toast.makeText(this, stops.size(), LENGTH_LONG).show();
+        Toast.makeText(this, stops.size()+"", LENGTH_LONG).show();
     }
 
     @Override
