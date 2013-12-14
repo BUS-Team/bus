@@ -6,17 +6,50 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.inject.Inject;
+import com.google.inject.Key;
+import com.google.inject.internal.util.$ToStringBuilder;
 
-public class MainActivity extends ActionBarActivity {
+import org.json.JSONArray;
 
-	AsyncHttpClient client = new AsyncHttpClient();
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import br.com.bus.httpcommunication.AndroidAsyncHttpClient;
+import br.com.bus.httpcommunication.HttpResultCallback;
+import br.com.bus.model.Stop;
+import roboguice.RoboGuice;
+import roboguice.inject.InjectResource;
+import roboguice.util.RoboContext;
+
+import static android.widget.Toast.LENGTH_LONG;
+import static android.widget.Toast.LENGTH_SHORT;
+
+public class MainActivity extends ActionBarActivity implements RoboContext {
+
+     @Inject
+     private AndroidAsyncHttpClient client;
+
+    @InjectResource(R.string.stops_routes)
+    private String routeStops;
+
+    @Inject
+    private ObjectMapper mapper;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+        RoboGuice.getInjector(this).injectMembers(this);
+
 		super.onCreate(savedInstanceState);
+
 		setContentView(R.layout.activity_main);
+
+        this.requestPositions();
 	}
 
 	@Override
@@ -38,20 +71,32 @@ public class MainActivity extends ActionBarActivity {
 
 	private void requestPositions() {
 
-		client.get("http://192.168.1.50:9000/positions/307",
-				new AsyncHttpResponseHandler() {
-					@Override
-					public void onSuccess(String content) {
-						Toast.makeText(MainActivity.this, content,
-								Toast.LENGTH_SHORT).show();
-					}
+        client.get(routeStops, new HttpResultCallback() {
+            @Override
+            public void onSuccess(String content) {
 
-					@Override
-					public void onFailure(Throwable error) {
-						Toast.makeText(MainActivity.this, error.toString(),
-								Toast.LENGTH_SHORT).show();
-					}
-				});
+                List<Stop> stops = null;
+                try {
+                    stops = mapper.readValue(content, new TypeReference<List<Stop>>(){});
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                MainActivity.this.buildCheckBox(stops);
+            }
+
+            @Override
+            public void onError(String error) {
+                Toast.makeText(MainActivity.this, error, LENGTH_SHORT).show();
+            }
+        });
 	}
 
+    private void buildCheckBox(List<Stop> stops) {
+        Toast.makeText(this, stops.size(), LENGTH_LONG).show();
+    }
+
+    @Override
+    public Map<Key<?>, Object> getScopedObjectMap() {
+        return  new HashMap<Key<?>, Object>();
+    }
 }

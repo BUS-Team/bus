@@ -3,6 +3,8 @@
 
     <string name="app_name">Bus Under Stop</string>
     <string name="action_settings">Configurações</string>
-	<string name="import_data">Importar Dados</string>
-	
+    <string name="import_data">Importar Dados</string>
+    <string name="ip">http://guilhermehenrique.apiary.io</string>
+    <string name="stops_routes">/stops</string>
+
 </resources>

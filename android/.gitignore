@@ -70,5 +70,6 @@ proguard_logs/
 *.ipr
 *.iws
 .idea/
+gen-external-apklibs/
 
 adt-bundle-windows-x86_64/
