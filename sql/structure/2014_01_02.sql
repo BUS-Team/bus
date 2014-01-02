@@ -1,21 +1,21 @@
 ﻿BEGIN;
 
 CREATE TABLE localization.route (
-	id	INTEGER,
+	id	SERIAL,
 	name	VARCHAR(30) NOT NULL,
 
 	CONSTRAINT pk_route_id PRIMARY KEY (id)
 );
 
 CREATE TABLE localization.point (
-	id	INTEGER,
+	id	SERIAL,
 	name	VARCHAR(30) NOT NULL,
 
 	CONSTRAINT pk_point_id PRIMARY KEY (id)
 );
 
 CREATE TABLE localization.destination (
-	id	INTEGER,
+	id	SERIAL,
 	name	VARCHAR(30) NOT NULL,
 
 	CONSTRAINT pk_destination_id PRIMARY KEY (id)
