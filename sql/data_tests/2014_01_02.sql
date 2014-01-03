@@ -1,9 +1,9 @@
 ﻿BEGIN;
-INSERT INTO localization.point (id, name) VALUES (1, 'RU - Bairro-Centro');
-INSERT INTO localization.point (id, name) VALUES (2, 'RU - Centro-Bairro');
-INSERT INTO localization.point (id, name) VALUES (3, 'RU - CCH');
-INSERT INTO localization.point (id, name) VALUES (4, 'RU - CCB');
-INSERT INTO localization.point (id, name) VALUES (5, 'RU - CCA');
+INSERT INTO localization.bus_stop (id, name) VALUES (1, 'RU - Bairro-Centro');
+INSERT INTO localization.bus_stop (id, name) VALUES (2, 'RU - Centro-Bairro');
+INSERT INTO localization.bus_stop (id, name) VALUES (3, 'RU - CCH');
+INSERT INTO localization.bus_stop (id, name) VALUES (4, 'RU - CCB');
+INSERT INTO localization.bus_stop (id, name) VALUES (5, 'RU - CCA');
 
 INSERT INTO localization.route (id, name) VALUES (1, '307');
 INSERT INTO localization.route (id, name) VALUES (2, '305');
@@ -25,12 +25,12 @@ INSERT INTO localization.route_destination (route_id, destination_id) VALUES (3,
 INSERT INTO localization.route_destination (route_id, destination_id) VALUES (4, 2);
 INSERT INTO localization.route_destination (route_id, destination_id) VALUES (5, 2);
 
-INSERT INTO localization.route_point (route_id, point_id) VALUES (1, 1);
-INSERT INTO localization.route_point (route_id, point_id) VALUES (1, 2);
-INSERT INTO localization.route_point (route_id, point_id) VALUES (1, 3);
-INSERT INTO localization.route_point (route_id, point_id) VALUES (1, 4);
-INSERT INTO localization.route_point (route_id, point_id) VALUES (2, 2);
-INSERT INTO localization.route_point (route_id, point_id) VALUES (3, 2);
-INSERT INTO localization.route_point (route_id, point_id) VALUES (4, 2);
+INSERT INTO localization.route_bus_stop (route_id, bus_stop_id) VALUES (1, 1);
+INSERT INTO localization.route_bus_stop (route_id, bus_stop_id) VALUES (1, 2);
+INSERT INTO localization.route_bus_stop (route_id, bus_stop_id) VALUES (1, 3);
+INSERT INTO localization.route_bus_stop (route_id, bus_stop_id) VALUES (1, 4);
+INSERT INTO localization.route_bus_stop (route_id, bus_stop_id) VALUES (2, 2);
+INSERT INTO localization.route_bus_stop (route_id, bus_stop_id) VALUES (3, 2);
+INSERT INTO localization.route_bus_stop (route_id, bus_stop_id) VALUES (4, 2);
 
 END;

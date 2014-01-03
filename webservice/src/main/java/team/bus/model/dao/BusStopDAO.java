@@ -1,8 +1,9 @@
 package team.bus.model.dao;
 
-import java.util.Collection;
-import javax.json.JsonObject;
+import java.sql.SQLException;
+import java.util.List;
+import team.bus.model.bean.BusStop;
 
 public interface BusStopDAO {
-    Collection<JsonObject> getAll();    
+    List<BusStop> getAll() throws SQLException;    
 }

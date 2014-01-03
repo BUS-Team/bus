@@ -7,11 +7,11 @@ CREATE TABLE localization.route (
 	CONSTRAINT pk_route_id PRIMARY KEY (id)
 );
 
-CREATE TABLE localization.point (
+CREATE TABLE localization.bus_stop (
 	id	SERIAL,
 	name	VARCHAR(30) NOT NULL,
 
-	CONSTRAINT pk_point_id PRIMARY KEY (id)
+	CONSTRAINT pk_bus_stop_id PRIMARY KEY (id)
 );
 
 CREATE TABLE localization.destination (
@@ -21,18 +21,18 @@ CREATE TABLE localization.destination (
 	CONSTRAINT pk_destination_id PRIMARY KEY (id)
 );
 
-CREATE TABLE localization.route_point (
+CREATE TABLE localization.route_bus_stop (
 	route_id	INTEGER,
-	point_id	INTEGER,
+	bus_stop_id	INTEGER,
 
-	CONSTRAINT pk_route_point PRIMARY KEY (route_id, point_id),
+	CONSTRAINT pk_route_bus_stop PRIMARY KEY (route_id, bus_stop_id),
 
-	CONSTRAINT fk_route_point_route_id 
+	CONSTRAINT fk_route_bus_stop_route_id 
 	FOREIGN KEY (route_id) REFERENCES localization.route(id)
 	ON DELETE CASCADE,
 
-	CONSTRAINT fk_route_point_point_id
-	FOREIGN KEY (point_id) REFERENCES localization.point(id)
+	CONSTRAINT fk_route_bus_stop_bus_stop_id
+	FOREIGN KEY (bus_stop_id) REFERENCES localization.bus_stop(id)
 	ON DELETE CASCADE
 );
 
