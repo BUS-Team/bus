@@ -17,6 +17,11 @@ public class BusStop {
         this.id = id;
     }
 
+    public BusStop withId(int id) {
+        this.setId(id);;
+        return this;
+    }
+    
     public String getName() {
         return name;
     }
@@ -28,5 +33,10 @@ public class BusStop {
             throw new IllegalArgumentException("BusStop name shouldn't be empty"
                     + " or greater than " + BusStop.MAX_NAME_LENGHT_PERMITED);
         this.name = name;
+    }
+    
+    public BusStop withName(String name) {
+        this.setName(name);
+        return this;
     }
 }

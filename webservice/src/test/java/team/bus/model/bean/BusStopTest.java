@@ -59,5 +59,27 @@ public class BusStopTest {
         String name = "";
         BusStop instance = new BusStop();
         instance.setName(name);
-    }        
+    }
+    
+    @Test
+    public void testFluentInterfaceWithId() {
+        System.out.println("testFluentInterfaceWithId");
+        BusStop instance = new BusStop();
+        int expectedId = 307;
+        instance.withId(expectedId);
+        int result = instance.getId();
+        
+        assertEquals(expectedId, result);
+    }
+    
+    @Test
+    public void testFluentInterfaceWithName() {
+        System.out.println("testFluentInterfaceWithName");
+        BusStop instance = new BusStop();
+        String expectedName = "glubsglubs";
+        instance.withName(expectedName);
+        String result = instance.getName();
+        
+        assertEquals(expectedName, result);
+    }
 }
