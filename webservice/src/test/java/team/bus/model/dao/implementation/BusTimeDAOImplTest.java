@@ -5,6 +5,7 @@ import java.sql.Time;
 import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 import team.bus.model.bean.BusStop;
 import team.bus.model.bean.DataBaseInfo;
 import team.bus.model.bean.Route;
@@ -23,6 +24,7 @@ public class BusTimeDAOImplTest {
     /**
      * Test of createConnection method, of class BusTimeDAOImpl.
      * 
+     * @throws java.lang.Exception
      */
     @Ignore("This test really connect the database. To run, check the dbInfo.")
     @Test

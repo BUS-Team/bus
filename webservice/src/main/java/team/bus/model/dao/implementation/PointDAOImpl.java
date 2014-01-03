@@ -1,13 +1,13 @@
 package team.bus.model.dao.implementation;
 
-import team.bus.model.dao.PointDAO;
+import team.bus.model.dao.BusStopDAO;
 import com.google.common.collect.Maps;
 import java.util.Collection;
 import java.util.Map;
 import javax.json.Json;
 import javax.json.JsonObject;
 
-public class PointDAOImpl implements PointDAO {
+public class PointDAOImpl implements BusStopDAO {
     private final static Map<Integer, JsonObject> points = 
             Maps.newLinkedHashMap();
     

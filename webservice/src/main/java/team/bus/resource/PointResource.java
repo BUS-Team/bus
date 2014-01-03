@@ -10,24 +10,24 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import team.bus.model.bean.Point;
+import team.bus.model.bean.BusStop;
 
 @Path("points")
 @Produces(MediaType.APPLICATION_JSON)
 public class PointResource {
     @GET
-    public List<Point> getAll() {
+    public List<BusStop> getAll() {
         
         
-        Point p = new Point();
+    BusStop p = new BusStop();
         p.setId(1);
         p.setName("RU");
 
-        Point p1 = new Point();
+    BusStop p1 =  new BusStop();
         p1.setId(2);
         p1.setName("CCH");
-
-        Point p2 = new Point();
+        
+        BusStop   p2 = new BusStop();
         p2.setId(1);
         p2.setName("RU");
         List points = new ArrayList();
