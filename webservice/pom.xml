@@ -60,7 +60,12 @@
             <version>4.11</version>
             <scope>test</scope>
             <type>jar</type>
-        </dependency>
+        </dependency>        
+        <dependency>
+                <groupId>postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>9.1-901.jdbc4</version>
+        </dependency>                    
     </dependencies>
     <properties>
         <jersey.version>2.5</jersey.version>

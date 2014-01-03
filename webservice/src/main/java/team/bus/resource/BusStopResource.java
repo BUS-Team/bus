@@ -1,5 +1,6 @@
 package team.bus.resource;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,14 +18,11 @@ import javax.ws.rs.core.MediaType;
 @Path("pontos")
 @Produces(MediaType.APPLICATION_JSON)
 public class BusStopResource {    
-    private final BusStopDAO busStop;
-
-    public BusStopResource() {
-        this.busStop = new BusStopDAOImpl(new ArrayList<BusStop>());
-    }
+    private final BusStopDAO busStop = 
+            new BusStopDAOImpl();
             
     @GET
-    public List<BusStop> getAll() {
+    public List<BusStop> getAll() throws SQLException {
         return this.busStop.getAll();
     }
 }

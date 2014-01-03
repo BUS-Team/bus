@@ -18,7 +18,7 @@ public class BusStop {
     }
 
     public BusStop withId(int id) {
-        this.setId(id);;
+        this.setId(id);
         return this;
     }
     

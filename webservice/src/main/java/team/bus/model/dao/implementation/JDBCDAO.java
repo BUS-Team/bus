@@ -9,10 +9,13 @@ import team.bus.model.bean.DataBaseInfo;
 public abstract class JDBCDAO {
     protected DataBaseInfo dataBaseInfo = null;
     
-    protected Connection createConnection() throws SQLException {
+    protected Connection createConnection() throws SQLException, 
+            ClassNotFoundException {
+        Class.forName("org.postgresql.Driver");
+        
         String url = "jdbc:postgresql://";
         url += this.dataBaseInfo.getHost();
-        url += '/';
+        url += "/";
         url += this.dataBaseInfo.getDataBase();
         
         Properties props = new Properties();
