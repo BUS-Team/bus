@@ -15,6 +15,7 @@ public class DataBaseInfoTest {
         String expResult = "glubsglubs";
         instance.setUser(expResult);
         String result = instance.getUser();
+        
         assertEquals(expResult, result);
     }
 
@@ -33,6 +34,7 @@ public class DataBaseInfoTest {
         String expResult = "123456";
         instance.setPassword(expResult);
         String result = instance.getPassword();
+        
         assertEquals(expResult, result);
     }
 
@@ -43,6 +45,7 @@ public class DataBaseInfoTest {
         String expResult = "bus";
         instance.setDataBase(expResult);
         String result = instance.getDataBase();
+        
         assertEquals(expResult, result);
     }
 
@@ -72,4 +75,48 @@ public class DataBaseInfoTest {
         DataBaseInfo instance = new DataBaseInfo();
         instance.setHost(host);
     }   
+
+    @Test
+    public void testFluentInterfaceWithUser() {
+        System.out.println("testFluentInterfaceWithUser");
+        DataBaseInfo instance = new DataBaseInfo();
+        String expResult = "postgres";
+        instance.withUser(expResult);
+        String result = instance.getUser();
+        
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testFluentInterfaceWithPassword() {
+        System.out.println("testFluentInterfaceWithPassword");
+        DataBaseInfo instance = new DataBaseInfo();
+        String expResult = "123456";
+        instance.withPassword(expResult);
+        String result = instance.getPassword();
+        
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testFluentInterfaceWithDataBase() {
+        System.out.println("testFluentInterfaceWithDataBase");
+        String expResult = "bus";
+        DataBaseInfo instance = new DataBaseInfo();        
+        instance.withDataBase(expResult);
+        String result = instance.getDataBase();
+        
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testFluentInterfaceWithHost() {
+        System.out.println("testFluentInterfaceWithHost");
+        String expResult = "localhost";
+        DataBaseInfo instance = new DataBaseInfo();
+        instance.withHost(expResult);
+        String result = instance.getHost();
+        
+        assertEquals(expResult, result);
+    }
 }

@@ -17,6 +17,11 @@ public class DataBaseInfo {
         this.user = user;
     }
 
+    public DataBaseInfo withUser(String user) {
+        this.setUser(user);
+        return this;
+    }
+    
     public String getPassword() {
         return password;
     }
@@ -25,6 +30,11 @@ public class DataBaseInfo {
         this.password = password;
     }
 
+    public DataBaseInfo withPassword(String password) {
+        this.setPassword(password);
+        return this;
+    }
+    
     public String getDataBase() {
         return dataBase;
     }
@@ -36,6 +46,11 @@ public class DataBaseInfo {
         this.dataBase = dataBase;
     }
 
+    public DataBaseInfo withDataBase(String dataBase) {
+        this.setDataBase(dataBase);
+        return this;
+    }
+    
     public String getHost() {
         return host;
     }
@@ -45,5 +60,10 @@ public class DataBaseInfo {
             throw new IllegalArgumentException("The field host in "
                     + "DataBaseInfo shouldn't be empty.");
         this.host = host;
-    }   
+    }
+    
+    public DataBaseInfo withHost(String host) {
+        this.setHost(host);
+        return this;
+    }
 }
