@@ -1,21 +1,14 @@
-package bus.timetable.model.dao;
+package team.bus.model.dao.implementation;
 
-import team.bus.model.JDBCDAO.BusTimeDAOImpl;
-import team.bus.model.bean.BusStop;
-import team.bus.model.bean.DataBaseInfo;
-import team.bus.model.bean.Route;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Ignore;
+import team.bus.model.bean.BusStop;
+import team.bus.model.bean.DataBaseInfo;
+import team.bus.model.bean.Route;
 
-/**
- *
- * @author vinicius
- */
 public class BusTimeDAOImplTest {
     DataBaseInfo dbInfo;
     
@@ -60,5 +53,5 @@ public class BusTimeDAOImplTest {
             System.out.println(t);
         
     }
-
+    
 }
