@@ -1,15 +1,9 @@
-package bus.timetable.model.bean;
+package team.bus.model.bean;
 
-/**
- *
- * @author vinicius
- */
-public class BusStop {
-    //TODO: Add latitude and longitude. Now I don't have the third lib.
-    
+public class Point {
     private int id;
     private String name;
-    
+
     public int getId() {
         return id;
     }
@@ -25,5 +19,4 @@ public class BusStop {
     public void setName(String name) {
         this.name = name;
     }
-    
 }

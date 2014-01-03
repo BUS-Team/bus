@@ -1,9 +1,5 @@
-package bus.timetable.model.bean;
+package team.bus.model.bean;
 
-/**
- *
- * @author vinicius
- */
 public class DataBaseInfo {
     private String user;
     private String password;
@@ -40,6 +36,5 @@ public class DataBaseInfo {
 
     public void setHost(String host) {
         this.host = host;
-    }
-    
+    }   
 }

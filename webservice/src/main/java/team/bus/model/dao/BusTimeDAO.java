@@ -1,15 +1,11 @@
-package bus.timetable.model.dao;
+package team.bus.model.dao;
 
-import bus.timetable.model.bean.BusStop;
-import bus.timetable.model.bean.Route;
+import team.bus.model.bean.BusStop;
+import team.bus.model.bean.Route;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.List;
 
-/**
- *
- * @author vinicius
- */
 public interface BusTimeDAO {
     //TODO: Improve this method name, loadTimeRouteBusStop sound weird
     public List<Time> loadTimeRouteBusStop(Route route, BusStop busStop) 

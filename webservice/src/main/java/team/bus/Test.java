@@ -1,9 +1,9 @@
-package bus.timetable.test;
+package team.bus;
 
-import bus.timetable.model.bean.BusStop;
-import bus.timetable.model.bean.DataBaseInfo;
-import bus.timetable.model.bean.Route;
-import bus.timetable.model.dao.BusTimeDAOImpl;
+import team.bus.model.bean.BusStop;
+import team.bus.model.bean.DataBaseInfo;
+import team.bus.model.bean.Route;
+import team.bus.model.dao.implementation.BusTimeDAOImpl;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.List;

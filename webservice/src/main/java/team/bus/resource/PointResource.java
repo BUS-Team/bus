@@ -10,7 +10,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import team.bus.bean.Point;
+import team.bus.model.bean.Point;
 
 @Path("points")
 @Produces(MediaType.APPLICATION_JSON)

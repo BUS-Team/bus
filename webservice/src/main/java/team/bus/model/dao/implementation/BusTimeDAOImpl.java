@@ -1,46 +1,23 @@
-package bus.timetable.model.dao;
+package team.bus.model.dao.implementation;
 
-import bus.timetable.model.bean.BusStop;
-import bus.timetable.model.bean.DataBaseInfo;
-import bus.timetable.model.bean.Route;
+import team.bus.model.bean.BusStop;
+import team.bus.model.bean.DataBaseInfo;
+import team.bus.model.bean.Route;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
+import team.bus.model.dao.BusTimeDAO;
 
-/**
- *
- * @author vinicius
- */
-public class BusTimeDAOImpl implements BusTimeDAO {
-    
-    private DataBaseInfo dataBaseInfo;
+public class BusTimeDAOImpl extends JDBCDAO implements BusTimeDAO {            
     
     public BusTimeDAOImpl(DataBaseInfo dataBaseInfo) {
         this.dataBaseInfo = dataBaseInfo;
     }
-    
-    protected Connection createConnection() throws SQLException {
-        String url = "jdbc:postgresql://";
-        url += this.dataBaseInfo.getHost();
-        url += '/';
-        url += this.dataBaseInfo.getDataBase();
-        
-        Properties props = new Properties();
-        props.setProperty("user", this.dataBaseInfo.getUser());
-        props.setProperty("password", this.dataBaseInfo.getPassword());
-        
-        Connection conn = DriverManager.getConnection(url, props);
-        
-        return conn;
-    }
-    
-    
+            
     private static final String TIME_BUS_STOP = 
             "SELECT rbs.moment FROM route r" +
                 " JOIN route_has_bus_stop rbs ON (r.id = rbs.route_id)" +
@@ -49,6 +26,7 @@ public class BusTimeDAOImpl implements BusTimeDAO {
                 " AND r.destination = ?" +
                 " AND bs.name LIKE ?;";
     
+    @Override
     public List<Time> loadTimeRouteBusStop(Route route, BusStop busStop) 
                                                         throws SQLException {
         List<Time> times = new ArrayList<Time>();
