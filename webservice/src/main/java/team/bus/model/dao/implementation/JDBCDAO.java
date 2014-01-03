@@ -11,10 +11,13 @@ public abstract class JDBCDAO {
     
     protected Connection createConnection() throws SQLException, 
             ClassNotFoundException {
+
         Class.forName("org.postgresql.Driver");
         
         String url = "jdbc:postgresql://";
         url += this.dataBaseInfo.getHost();
+        url += ":";
+        url += this.dataBaseInfo.getPort();
         url += "/";
         url += this.dataBaseInfo.getDataBase();
         

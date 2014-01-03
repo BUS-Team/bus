@@ -1,13 +1,14 @@
 package team.bus.model.bean;
 
 public class DataBaseInfo {
-    private String user;
-    private String password;
-    private String dataBase;
-    private String host;
+    private String user = null;
+    private String password = null;
+    private String dataBase = null;
+    private String host = null;
+    private int port = 5432;
 
     public String getUser() {
-        return user;
+        return this.user;
     }
 
     public void setUser(String user) {
@@ -23,7 +24,7 @@ public class DataBaseInfo {
     }
     
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {
@@ -36,7 +37,7 @@ public class DataBaseInfo {
     }
     
     public String getDataBase() {
-        return dataBase;
+        return this.dataBase;
     }
 
     public void setDataBase(String dataBase) {
@@ -52,7 +53,7 @@ public class DataBaseInfo {
     }
     
     public String getHost() {
-        return host;
+        return this.host;
     }
 
     public void setHost(String host) {
@@ -64,6 +65,23 @@ public class DataBaseInfo {
     
     public DataBaseInfo withHost(String host) {
         this.setHost(host);
+        return this;
+    }
+    
+    public int getPort() {
+        return this.port;
+    }
+    
+    private final static int FIRST_REGISTERED_PORT = 1024;
+    
+    public void setPort(int port) {
+        if (port < DataBaseInfo.FIRST_REGISTERED_PORT)
+            throw new IllegalArgumentException("Invalid port.");
+        this.port = port;
+    }
+    
+    public DataBaseInfo withPort(int port) {
+        this.setPort(port);
         return this;
     }
 }

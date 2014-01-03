@@ -119,4 +119,46 @@ public class DataBaseInfoTest {
         
         assertEquals(expResult, result);
     }
+    
+    @Test
+    public void testGetPort() {
+        System.out.println("testGetPort");
+        int expResult = 5555;
+        DataBaseInfo instance = new DataBaseInfo();
+        instance.setPort(expResult);
+        
+        int result = instance.getPort();
+        
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testGetDefaultPort() {
+        System.out.println("testGetDefaultPort");
+        int expResult = 5432;
+        DataBaseInfo instance = new DataBaseInfo();
+        
+        int result = instance.getPort();
+        
+        assertEquals(expResult, result);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetPortInvalid() {
+        System.out.println("testSetPortInvalid");
+        int expResult = 1000;
+        DataBaseInfo instance = new DataBaseInfo();
+        instance.setPort(expResult);        
+    }    
+    
+    @Test
+    public void testFluentInterfaceWithPort() {
+        System.out.println("testFluentInterfaceWithPort");
+        int expResult = 5555;
+        DataBaseInfo instance = new DataBaseInfo();
+        instance.withPort(expResult);        
+        int result = instance.getPort();
+        
+        assertEquals(expResult, result);
+    }
 }

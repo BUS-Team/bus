@@ -1,6 +1,7 @@
 package team.bus.resource;
 
 import java.sql.SQLException;
+import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,7 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.APPLICATION_JSON)
 public class BusStopResource {    
     private final BusStopDAO busStop = 
-            new BusStopDAOImpl();
+            new BusStopDAOImpl(new ArrayList<BusStop>());
             
     @GET
     public List<BusStop> getAll() throws SQLException {
