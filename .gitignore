@@ -1,1 +1,3 @@
-/bus_timetable/target/
+bus_timetable/target/
+webservice/target/*
+webservice/nb-configuration.xml

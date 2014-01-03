@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">BUS</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">Bus Under Stop</string>
+    <string name="action_settings">Configurações</string>
+    <string name="import_data">Importar Dados</string>
+    <string name="ip">http://guilhermehenrique.apiary.io</string>
+    <string name="stops_routes">/stops</string>
 
 </resources>

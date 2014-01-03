@@ -1,22 +1,35 @@
 package controllers;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import play.db.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.List;
+
+import models.Posicao;
+
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
+
+import play.api.libs.iteratee.internal;
+import play.api.libs.json.Json;
+import play.db.DB;
 import play.libs.F;
 import play.libs.WS;
-import play.mvc.*;
-import views.html.*;
-import java.util.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.sql.*;
-import akka.util.Convert;
+import play.mvc.BodyParser;
+import play.mvc.Controller;
+import play.mvc.Result;
+import views.html.index;
+
+import com.avaje.ebean.Ebean;
 
 public class Application extends Controller
 {
-
+	
+	private static ObjectMapper mapper = new ObjectMapper();
+	
 	/* Variable declarations */
 	private static Connection conn = DB.getConnection("default"); /* Get the database connection from the conf/application.conf */
 
@@ -25,7 +38,22 @@ public class Application extends Controller
     {
         return ok(index.render("Your new application is ready."));
     }
-  
+    
+    @BodyParser.Of(BodyParser.Json.class)
+    public static Result getLatestPositionsByRoute(int route) {
+    
+    	List<Posicao> posicoes = Posicao.findPosicoesByRoute(route);
+
+    	String posicoesJson = null;
+    	try {
+			posicoesJson = mapper.writeValueAsString(posicoes);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        return ok(posicoesJson); 
+    }
+    
+    
   	/*
   		Author: Breno Kusunoki
   		Description: This method gets all buses positions and stores them in the database.
