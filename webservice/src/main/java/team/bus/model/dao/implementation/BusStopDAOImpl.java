@@ -11,17 +11,10 @@ public class BusStopDAOImpl extends JDBCDAO implements BusStopDAO {
     private List<BusStop> busStop = null;
 
     public BusStopDAOImpl(List<BusStop> busStopImpl)  {
-        
-        this.busStop = busStopImpl;
-        
-        //TODO: [HA][URGENT] Retirar essa definição daqui.
-        DataBaseInfo dbi = 
-                new DataBaseInfo().withHost("localhost")
-                .withDataBase("bus")
-                .withUser("postgres")
-                .withPassword("123456");
-        
-        this.dataBaseInfo = dbi;
+        if (busStopImpl == null)
+            throw new IllegalArgumentException("The argument from constructor "
+                    + "shouldn't be null. Argument ex: new ArrayList<BusStop>");
+        this.busStop = busStopImpl;        
     }
         
     @Override
