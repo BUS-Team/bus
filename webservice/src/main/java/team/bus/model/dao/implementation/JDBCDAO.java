@@ -21,11 +21,11 @@ public abstract class JDBCDAO {
         url += "/";
         url += this.dataBaseInfo.getDataBase();
         
-        Properties props = new Properties();
-        props.setProperty("user", this.dataBaseInfo.getUser());
-        props.setProperty("password", this.dataBaseInfo.getPassword());
+        Properties properties = new Properties();
+        properties.setProperty("user", this.dataBaseInfo.getUser());
+        properties.setProperty("password", this.dataBaseInfo.getPassword());
         
-        Connection conn = DriverManager.getConnection(url, props);
+        Connection conn = DriverManager.getConnection(url, properties);
         
         return conn;
     }    

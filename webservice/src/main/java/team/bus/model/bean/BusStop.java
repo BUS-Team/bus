@@ -4,6 +4,17 @@ public class BusStop {
     private int id;
     private String name;
 
+    @Override
+    public boolean equals(Object obj) {
+        BusStop busStop = (BusStop)obj;
+        
+        if (obj == null)
+            return false;
+        
+        return (this.id == busStop.id && this.name.equals(busStop.name));
+    }
+
+    
     public int getId() {
         return id;
     }

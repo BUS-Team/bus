@@ -7,6 +7,66 @@ public class BusStopTest {
     
     public BusStopTest() {
     }
+    
+    @Test
+    public void testEqualsWithOneElementNull() {
+        System.out.println("testEqualsWithOneElementNull");
+        BusStop o1 = new BusStop().withId(1).withName("a");
+        BusStop o2 = null;
+        boolean result = o1.equals(o2);
+        
+        assertTrue(!result);
+    }
+
+    @Test
+    public void testEqualsWithDiferentId() {
+        System.out.println("testEqualsWithDiferentId");
+        BusStop o1 = new BusStop().withId(1).withName("a");
+        BusStop o2 = new BusStop().withId(2).withName("a");
+        boolean result = o1.equals(o2);
+        
+        assertTrue(!result);
+    }
+
+    @Test
+    public void testEqualsWithDiferentName() {
+        System.out.println("testEqualsWithDiferentName");
+        BusStop o1 = new BusStop().withId(1).withName("a");
+        BusStop o2 = new BusStop().withId(1).withName("b");
+        boolean result = o1.equals(o2);
+        
+        assertTrue(!result);
+    }
+
+    @Test
+    public void testEqualsWithoutId() {
+        System.out.println("testEqualsWithoutId");
+        BusStop o1 = new BusStop().withId(1).withName("a");
+        BusStop o2 = new BusStop().withName("b");
+        boolean result = o1.equals(o2);
+        
+        assertTrue(!result);
+    }
+
+    @Test
+    public void testEqualsWithoutName() {
+        System.out.println("testEqualsWithoutId");
+        BusStop o1 = new BusStop().withId(1).withName("a");
+        BusStop o2 = new BusStop().withId(1);
+        boolean result = o1.equals(o2);
+        
+        assertTrue(!result);
+    }
+
+    @Test
+    public void testEquals() {
+        System.out.println("testEquals");
+        BusStop o1 = new BusStop().withId(1).withName("a");
+        BusStop o2 = new BusStop().withId(1).withName("a");
+        boolean result = o1.equals(o2);
+        
+        assertTrue(result);
+    }
 
     @Test
     public void testGetId() {

@@ -11,6 +11,7 @@ public class BusStopDAOImpl extends JDBCDAO implements BusStopDAO {
     private List<BusStop> busStop = null;
 
     public BusStopDAOImpl(List<BusStop> busStopImpl)  {
+        
         this.busStop = busStopImpl;
         
         //TODO: [HA][URGENT] Retirar essa definição daqui.
