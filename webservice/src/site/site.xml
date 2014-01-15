@@ -1,0 +1,13 @@
+<project name="WebService">
+    <bannerLeft>
+        <name>BUS: Web Service</name>
+        <src>images/logo.png</src>
+        <href>http://localhos</href>
+    </bannerLeft>
+    <body>
+        <menu name="BUS: Web Service">
+            <item name="Overview" href="index.html"/>
+        </menu>
+        <menu ref="reports"/>
+    </body>
+</project>

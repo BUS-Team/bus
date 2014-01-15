@@ -9,6 +9,31 @@
     <version>0.1</version>
     <name>webservice</name>
 
+    <!--================================================== -->
+    <developers>
+        <developer>
+            <id>helioalb</id>
+            <name>Helio Albano de Oliveira</name>
+            <email></email>
+            <roles>
+                <role>Project(Web Service Lead</role>
+            </roles>
+            <timezone>-3</timezone>
+            <url>https://github.com/helioalb</url>
+        </developer>
+
+        <developer>
+            <id>bnkusunoki</id>
+            <name>Breno Naodi Kusunoki</name>
+            <email></email>
+            <roles>
+                <role>Senior Developer</role>
+            </roles>
+            <timezone>-3</timezone>
+            <url>https://github.com/bnkusunoki</url>
+        </developer>
+    </developers>
+    <!--================================================== -->
     <build>
         <finalName>webservice</finalName>
         <plugins>
