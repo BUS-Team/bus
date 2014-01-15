@@ -1,3 +1,5 @@
 bus_timetable/target/
 webservice/target/*
 webservice/nb-configuration.xml
+.DS_Store
+webservice/.idea/*
