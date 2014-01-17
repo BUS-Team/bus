@@ -51,7 +51,7 @@ public class MainActivity extends ActionBarActivity implements RoboContext {
         client.get(routeStops, new HttpResultCallback() {
             @Override
             public void onSuccess(String content) {
-                List<Stop> stops = serializer.<List<Stop>>deserialize(content);
+                List<Stop> stops = serializer.<Stop>deserializeList(content, Stop.class);
                 buildCheckBox(stops);
             }
 
