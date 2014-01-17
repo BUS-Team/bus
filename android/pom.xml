@@ -56,28 +56,28 @@
 			<scope>test</scope>
 		</dependency>
         <dependency>
-            <groupId>com.google.android</groupId>
+            <groupId>android</groupId>
             <artifactId>android</artifactId>
-            <version>17</version>
+            <version>4.4.2_r2</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>android.support</groupId>
-            <artifactId>compatibility-v7-appcompat</artifactId>
+            <groupId>com.android.support</groupId>
+            <artifactId>appcompat-v7</artifactId>
             <version>19.0.0</version>
             <type>apklib</type>
         </dependency>
-		<dependency>
-			<groupId>android.support</groupId>
-			<artifactId>compatibility-v4</artifactId>
+        <dependency>
+            <groupId>com.android.support</groupId>
+            <artifactId>support-v4</artifactId>
+            <version>19.0.0</version>
+        </dependency>
+        <dependency>
+			<groupId>com.android.support</groupId>
+			<artifactId>appcompat-v7</artifactId>
 			<version>19.0.0</version>
 			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>android.support</groupId>
-			<artifactId>compatibility-v7-appcompat</artifactId>
-			<version>19.0.0</version>
-			<type>jar</type>
+            <scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.loopj.android</groupId>
