@@ -1,9 +1,12 @@
 package br.com.bus;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 import com.google.inject.Inject;
@@ -52,7 +55,7 @@ public class MainActivity extends ActionBarActivity implements RoboContext {
             @Override
             public void onSuccess(String content) {
                 List<Stop> stops = serializer.<Stop>deserializeList(content, Stop.class);
-                buildCheckBox(stops);
+                buildSpinner(stops);
             }
 
             @Override
@@ -61,25 +64,25 @@ public class MainActivity extends ActionBarActivity implements RoboContext {
             }
         });
     }
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.main, menu);
-		return super.onCreateOptionsMenu(menu);
-	}
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.import_data:
-			this.requestPositions();
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);
-		}
-	}
+    private void buildSpinner(List<Stop> stops) {
 
-    private void buildCheckBox(List<Stop> stops) {
-        Toast.makeText(this, stops.size()+"", LENGTH_LONG).show();
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+
+        actionBar.setDisplayShowTitleEnabled(false);
+        ArrayAdapter<Stop> adapter = new StopsAdapter(actionBar.getThemedContext(), stops);
+
+        ActionBar.OnNavigationListener navigationListener = new ActionBar.OnNavigationListener() {
+            @Override
+            public boolean onNavigationItemSelected(int i, long l) {
+                Toast.makeText(MainActivity.this, i + "  " + l, Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        };
+
+        actionBar.setListNavigationCallbacks(adapter, navigationListener);
+        actionBar.setSelectedNavigationItem(-1);
     }
 
     @Override

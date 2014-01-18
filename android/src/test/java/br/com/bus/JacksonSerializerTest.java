@@ -19,8 +19,8 @@ import static org.junit.Assert.assertEquals;
 
 public class JacksonSerializerTest {
 
-    private static final String STOP_JSON = "{\"id\":1, \"nome\":\"RU\"}";
-    private String STOP_JSON_LIST = "[{\"id\" : 1, \"nome\": \"RU\"}, {\"id\": 2, \"nome\": \"CCB\"}, {\"id\": 3, \"nome\": \"CCH\"}]";
+    private static final String STOP_JSON = "{\"id\":1, \"name\":\"RU\"}";
+    private String STOP_JSON_LIST = "[{\"id\" : 1, \"name\": \"RU\"}, {\"id\": 2, \"name\": \"CCB\"}, {\"id\": 3, \"name\": \"CCH\"}]";
 
     private JacksonSerializer serializer;
 
@@ -33,7 +33,7 @@ public class JacksonSerializerTest {
     public void shouldDeserializeSingleStop() {
         Stop stop = serializer.<Stop>deserializeObject(STOP_JSON, Stop.class);
         assertEquals(stop.getId(), 1L);
-        assertEquals(stop.getNome(), "RU");
+        assertEquals(stop.getName(), "RU");
     }
 
     @Test
@@ -51,9 +51,9 @@ public class JacksonSerializerTest {
         assertEquals(stops.get(1).getId(), 2L);
         assertEquals(stops.get(2).getId(), 3L);
 
-        assertEquals(stops.get(0).getNome(), "RU");
-        assertEquals(stops.get(1).getNome(), "CCB");
-        assertEquals(stops.get(2).getNome(), "CCH");
+        assertEquals(stops.get(0).getName(), "RU");
+        assertEquals(stops.get(1).getName(), "CCB");
+        assertEquals(stops.get(2).getName(), "CCH");
     }
 
     private List<Stop> deserializeStops(String jsonObject) {
