@@ -3,10 +3,7 @@ package br.com.bus;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ArrayAdapter;
-import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 import com.google.inject.Inject;
@@ -24,13 +21,12 @@ import roboguice.RoboGuice;
 import roboguice.inject.InjectResource;
 import roboguice.util.RoboContext;
 
-import static android.widget.Toast.LENGTH_LONG;
 import static android.widget.Toast.LENGTH_SHORT;
 
 public class MainActivity extends ActionBarActivity implements RoboContext {
 
-     @Inject
-     private HttpClient client;
+    @Inject
+    private HttpClient client;
 
     @Inject
     private JsonSerializer serializer;
@@ -38,19 +34,17 @@ public class MainActivity extends ActionBarActivity implements RoboContext {
     @InjectResource(R.string.stops_routes)
     private String routeStops;
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
         RoboGuice.getInjector(this).injectMembers(this);
 
-		super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_main);
         this.requestPositions();
-	}
-    
-    private void requestPositions() {
+    }
 
+    private void requestPositions() {
         client.get(routeStops, new HttpResultCallback() {
             @Override
             public void onSuccess(String content) {
@@ -66,8 +60,8 @@ public class MainActivity extends ActionBarActivity implements RoboContext {
     }
 
     private void buildSpinner(List<Stop> stops) {
-
         ActionBar actionBar = getSupportActionBar();
+
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
 
         actionBar.setDisplayShowTitleEnabled(false);
@@ -82,7 +76,6 @@ public class MainActivity extends ActionBarActivity implements RoboContext {
         };
 
         actionBar.setListNavigationCallbacks(adapter, navigationListener);
-        actionBar.setSelectedNavigationItem(-1);
     }
 
     @Override

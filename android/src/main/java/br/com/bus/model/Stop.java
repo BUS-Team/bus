@@ -6,6 +6,13 @@ public class Stop {
 
     private String name;
 
+    public Stop() { }
+
+    public Stop(long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public long getId() {
         return id;
     }
