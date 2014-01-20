@@ -35,17 +35,13 @@ import static org.mockito.Mockito.when;
 @RunWith(RobolectricTestRunner.class)
 public class MainActivityTest {
 
-    private @InjectResource(R.string.stops_routes) String routeStops;
-
     private MainActivity mainActivity;
 
     private List<Stop> stopsFixture = createStops();
 
-    @Inject
-    private HttpClient client;
+    private @Inject HttpClient client;
 
-    @Inject
-    private JsonSerializer serializer;
+    private @Inject JsonSerializer serializer;
 
     @Before
     public void setupTests() {

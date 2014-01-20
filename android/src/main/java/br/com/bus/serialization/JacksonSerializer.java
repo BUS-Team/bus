@@ -12,8 +12,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class JacksonSerializer implements JsonSerializer {
 
-    @Inject
-    private ObjectMapper mapper;
+    private @Inject ObjectMapper mapper;
 
     @Override
     public <T> List<T> deserializeList(String objectJson, Class<T> clazz) {

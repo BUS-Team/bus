@@ -25,14 +25,11 @@ import static android.widget.Toast.LENGTH_SHORT;
 
 public class MainActivity extends ActionBarActivity implements RoboContext {
 
-    @Inject
-    private HttpClient client;
+    private @Inject HttpClient client;
 
-    @Inject
-    private JsonSerializer serializer;
+    private @Inject JsonSerializer serializer;
 
-    @InjectResource(R.string.stops_routes)
-    private String routeStops;
+    private @InjectResource(R.string.stops_routes) String routeStops;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

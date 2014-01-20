@@ -12,9 +12,9 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class AndroidAsyncHttpClient implements HttpClient{
 
-    @Inject AsyncHttpClient client;
+    private @Inject AsyncHttpClient client;
 
-    @InjectResource(R.string.ip) String ip;
+    private @InjectResource(R.string.ip) String ip;
 
     @Override
     public void get(String route, HttpResultCallback callback) {
