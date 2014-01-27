@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<meta name="description" content="BUS">
+    	<meta name="author" content="BUS">
+        <title>BUS</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("awesome/dist/leaflet.awesome-markers.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("leaflet/leaflet.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("css/bootstrap.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("awesome/dist/css/font-awesome.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("css/style.css")">
+
+        <style>
+        	.foo {
+        		padding-top: 40px;
+        	}
+        </style>
+        <script type="text/javascript">
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-33857880-1']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		</script>
+    </head>
+
+    <body class="" data-twttr-rendered="true">
+	    <div class="navbar navbar-inverse navbar-fixed-top">
+	      <div class="container">
+	        <a href="#" class="navbar-brand">BUS v0.7</a>
+	        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        </button>
+	        <div class="nav-collapse bs-navbar-collapse collapse" style="height: 0px;">
+	          <ul class="nav navbar-nav">
+	            <li>
+	              <a data-toggle="modal" href="#myModal">Escolha a linha</a>
+	            </li>
+	            <li>
+	              <a href="#" onClick="clearMarkers()">Limpar mapa</a>
+	            </li>
+	          </ul>
+	        </div>
+	      </div>
+	    </div>
+
+	    <div class="container foo">
+	    	
+
+		<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	      <div class="modal-dialog">
+	        <div class="modal-content">
+			<div class="modal-header">
+				<a href="#" class="close" data-dismiss="modal">×</a>
+				<h3>Escolha a linha:</h3>
+			</div>
+			<div class="modal-body">
+				<div class="divDialogElements">
+					<select id="selectLine" style="margin-top: 6px; width: 200px;">
+		                <option value="100">100 - JD. ALEMANHA - TC                        </option>
+		                <option value="101">101 - JARDIM NOVO AMPARO                       </option>
+		                <option value="102">102 - JARDIM IDEAL                             </option>
+		                <option value="103">103 - JARDIM SANTA FE                          </option>
+		                <option value="104">104 - JD. INTERLAGOS                           </option>
+		                <option value="105">105 - JARDIM SAO PEDRO                         </option>
+		                <option value="106">106 - CJ. GUILHERME PIRES                      </option>
+		                <option value="107">107 - JARDIM ARAGARÇA                          </option>
+		                <option value="108">108 - JARDIM ALBATROZ                          </option>
+		                <option value="109">109 - RODOVIÁRIA                               </option>
+		                <option value="110">110 - MISTER THOMAS                            </option>
+		                <option value="111">111 - CJ. EUCALIPTOS                           </option>
+		                <option value="112">112 - ALEXANDRE URBANAS                        </option>
+		                <option value="113">113 - PIONEIROS                                </option>
+		                <option value="114">114 - BOULEVARD SHOPPING                       </option>
+		                <option value="121">121 - TRÊS FIGUEIRAS                           </option>
+		                <option value="200">200 - VILA BRASIL                              </option>
+		                <option value="201">201 - JARDIM CALIFÓRNIA                        </option>
+		                <option value="206">206 - JARDIM EUROPA                            </option>
+		                <option value="208">208 - VILA HIGIENÓPOLIS                        </option>
+		                <option value="209">209 - JARDIM CLAUDIA                           </option>
+		                <option value="211">211 - PATRIMÔNIO REGINA                        </option>
+		                <option value="213">213 - SHOPING CATUAÍ                           </option>
+		                <option value="217">217 - CJ. VIVENDAS DO ARVOREDO                 </option>
+		                <option value="220">220 - EMAUS                                    </option>
+		                <option value="221">221 - LIMOEIRO                                 </option>
+		                <option value="223">223 - CANAÃ                                    </option>
+		                <option value="224">224 - SONORA                                   </option>
+		                <option value="225">225 - PITÁGORAS-SHOP.CATUAÍ                    </option>
+		                <option value="250">250 - SÃO LUIZ                                 </option>
+		                <option value="301">301 - JARDIM PRESIDENTE                        </option>
+		                <option value="302">302 - JARDIM HEDY                              </option>
+		                <option value="303">303 - JARDIM TOKIO                             </option>
+		                <option value="304">304 - SHOPPING CATUAÍ/UEL - VIA TIRADENTES     </option>
+		                <option value="305">305 - CAMPUS                                   </option>
+		                <option value="307">307 - CJ. AVELINO VIEIRA                       </option>
+		                <option value="308">308 - JARDIM BANDEIRANTES                      </option>
+		                <option value="309">309 - PQ. GOV. N.BRAGA                         </option>
+		                <option value="310">310 - JARDIM DO SOL                            </option>
+		                <option value="311">311 - JARDIM SANTA RITA                        </option>
+		                <option value="312">312 - JARDIM STA  MADALENA                     </option>
+		                <option value="313">313 - JARDIM MARIA LUCIA                       </option>
+		                <option value="314">314 - JARDIM OLIMPICO                          </option>
+		                <option value="315">315 - COLUMBIA                                 </option>
+		                <option value="400">400 - CJ. PARIGOT DE SOUZA                     </option>
+		                <option value="401">401 - CJ CHEFE NEWTON                          </option>
+		                <option value="402">402 - CONJ. VIVI XAVIER                        </option>
+		                <option value="403">403 - CJ. RUY VIRMOND CARNASCIALLI             </option>
+		                <option value="404">404 - CONJ. HEIMTAL                            </option>
+		                <option value="405">405 - CJ. MARIA CECÍLIA                        </option>
+		                <option value="406">406 - CJ. AQUILES STENGUEL                     </option>
+		                <option value="407">407 - CONJ. JOÃO PAZ                           </option>
+		                <option value="408">408 - VILA RECREIO                             </option>
+		                <option value="409">409 - VILA YARA                                </option>
+		                <option value="410">410 - VILA NOVA                                </option>
+		                <option value="411">411 - JARDIM PARAISO                           </option>
+		                <option value="412">412 - CJ.HILDA MANDARINO                       </option>
+		                <option value="413">413 - RESIDENCIAL DO CAFÉ                      </option>
+		                <option value="414">414 - CJ. SANTO ANDRÉ                          </option>
+		                <option value="415">415 - CONJ. ITAPOA                             </option>
+		                <option value="416">416 - CJ. FARID LIBOS                          </option>
+		                <option value="417">417 - JARDIM CATUAI                            </option>
+		                <option value="418">418 - JD.PRIMAVERA                             </option>
+		                <option value="419">419 - JD. PORTO SEGURO                         </option>
+		                <option value="420">420 - T.VIVI XAVIER / SHOP. LONDRINA NORTE     </option>
+		                <option value="421">421 - SANTIAGO 2 / PACAEMBU 1                  </option>
+		                <option value="422">422 - CJ MARIA CELINA                          </option>
+		                <option value="423">423 - CJ.SÃO JORGE                             </option>
+		                <option value="424">424 - MARISTELA                                </option>
+		                <option value="425">425 - COMERCIAL NORTE                          </option>
+		                <option value="426">426 - JARDIM PARIS                             </option>
+		                <option value="427">427 - WARTA - VIVI XAVIER                      </option>
+		                <option value="428">428 - VISTA BELA                               </option>
+		                <option value="429">429 - JD. PAULISTA                             </option>
+		                <option value="444">444 - WARTA                                    </option>
+		                <option value="445">445 - JD. FELICIDADE                           </option>
+		                <option value="446">446 - SHOP.NORTE                               </option>
+		                <option value="501">501 - PARADOR VIVI XAVIER - TC                 </option>
+		                <option value="502">502 - PARADOR OURO VERDE - TC                  </option>
+		                <option value="503">503 - RÁPIDO AQUILES - CENTRO                  </option>
+		                <option value="504">504 - PARADOR M.  GAVETTI - TC                 </option>
+		                <option value="505">505 - EXPRESSO VIVI  XAVIER - TC               </option>
+		                <option value="506">506 - RAPIDO VIOLIM - MARIA CECÍLIA            </option>
+		                <option value="512">512 - EXPRESSO OURO VERDE                      </option>
+		                <option value="600">600 - RÁP ACAPULCO - CENTRO                    </option>
+		                <option value="601">601 - PARADOR ACAPULCO - TC                    </option>
+		                <option value="605">605 - EXP TERM. ACAPULCO/ TC                   </option>
+		                <option value="611">611 - PSIU - SANTA RITA -                      </option>
+		                <option value="613">613 - PSIU SHOPPING CATUAI - VIVI XAVIER       </option>
+		                <option value="701">701 - RÁPIDO S.FERNANDO-CENTRO                 </option>
+		                <option value="800">800 - VIVI XAVIER - ACAPULCO                   </option>
+		                <option value="801">801 - VIVI XAVIER - T.GAVETTI - CENTRO CÍVICO  </option>
+		                <option value="802">802 - VIVI XAVIER - AV. BANDEIRANTES           </option>
+		                <option value="803">803 - VIVI XAVIER - SHOPPING CATUAI            </option>
+		                <option value="806">806 - SAUL ELKIND - SHOPPING CATUAI            </option>
+		                <option value="810">810 - SÃO JOÃO - TIRADENTES                    </option>
+		                <option value="820">820 - SÃO JOÃO - TIRADENTES                    </option>
+		                <option value="830">830 - FAC.PITÁGORAS - VIVI XAVIER              </option>
+		                <option value="834">834 - PITÁGORAS - MILTON GAVETTI               </option>
+		                <option value="835">835 - U.E.L- MILTON GAVETTI                    </option>
+		                <option value="900">900 - VIVI XAVIER - H.U. (HOSPITAL UNIVERSITAR </option>
+		                <option value="901">901 - PERIMETRAL 5 CJ. / CACIQUE (V.T VIV-COB. </option>
+		                <option value="902">902 - PERIMETRAL T.MILTON GAV/ AV. TIR         </option>
+		                <option value="903">903 - CIRCULAR - TC - CENTRO                   </option>
+		                <option value="904">904 - PER/S.LOURENÇO/SABARÁ                    </option>
+		                <option value="905">905 - TERMINAL ACAPULCO - H. U                 </option>
+		                <option value="906">906 - COLUMBIA-SHOPPING CATUAÍ                 </option>
+		                <option value="908">908 - PARÁ - ANEL CENTRAL                      </option>
+		                <option value="909">909 - PERNAMBUCO - ANEL CENTRAL                </option>
+		                <option value="912">912 - LEONOR - UEL                             </option>
+		            </select>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
+				<button type="button" class="btn btn-success" data-dismiss="modal" onclick="okClicked();">OK</a>
+			</div>
+
+	        </div><!-- /.modal-content -->
+	      </div><!-- /.modal-dialog -->
+	    </div><!-- /.modal -->
+
+	    	
+		</div>
+		<div id="map"></div>
+		@helper.requireJs(module = "", core = routes.Assets.at("leaflet/leaflet.js").url)
+		@helper.requireJs(module = "", core = routes.Assets.at("awesome/dist/leaflet.awesome-markers.js").url)
+		@helper.requireJs(module = "", core = routes.Assets.at("js/bus.js").url)
+		@helper.requireJs(module = "", core = routes.Assets.at("js/jquery.js").url)
+		@helper.requireJs(module = "", core = routes.Assets.at("js/bootstrap.js").url)
+    </body>
+</html>
