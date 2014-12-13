@@ -4,14 +4,14 @@ import java.io.*;
 import java.sql.*;
 import java.util.Map;
 
-import br.com.pooler.db.dao.DAOResponsePosition;
-import br.com.pooler.db.dao.PostgresDAOResponsePosition;
+import br.com.pooler.db.dao.ResponsePositionPostgresDAO;
+import br.com.pooler.db.dao.ResponsePositionDAO;
 import org.yaml.snakeyaml.Yaml;
 
 /**
  * Created by breno on 13/12/14.
  */
-public class PostgresDAOFactory extends DAOFactory {
+public class PostgresFactoryDAO extends FactoryDAO {
     InputStream input;
     Map<String,String> conf;
 
@@ -21,7 +21,7 @@ public class PostgresDAOFactory extends DAOFactory {
     private String user;
     private String password;
 
-    public PostgresDAOFactory() throws ClassNotFoundException {
+    public PostgresFactoryDAO() throws ClassNotFoundException {
         try {
             input = this.getClass().getResourceAsStream("/config.yml");
             conf = (Map<String, String>) new Yaml().load(input);
@@ -48,7 +48,7 @@ public class PostgresDAOFactory extends DAOFactory {
     }
 
     @Override
-    public DAOResponsePosition getResponsePositionDAO() throws Exception {
-        return new PostgresDAOResponsePosition();
+    public ResponsePositionDAO getResponsePositionDAO() throws Exception {
+        return new ResponsePositionPostgresDAO();
     }
 }
