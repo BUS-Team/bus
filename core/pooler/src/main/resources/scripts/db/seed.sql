@@ -1,0 +1,1 @@
+CREATE TABLE response_positions (id serial NOT NULL, bus_line integer, date_received timestamp with time zone, content character varying, CONSTRAINT pk_response_positions PRIMARY KEY (id)) WITH (OIDS=FALSE);
