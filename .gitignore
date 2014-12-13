@@ -2,3 +2,6 @@ bus_timetable/target/
 webservice/target/*
 webservice/nb-configuration.xml
 .DS_Store
+core/pooler/target/*
+core/pooler/.idea/*
+core/pooler/pooler.iml
